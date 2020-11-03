@@ -5,17 +5,17 @@
       @click="toggleEditability"
     >
       <div v-if="editableState" data-testid="unLockedButton">
-        <p>{{ $t('editing') }}</p>
+        <p>{{ "editing" }}</p>
       </div>
       <div v-if="!editableState" data-testid="lockedButton">
-        <p>{{ $t('watching') }}</p>
+        <p>{{ "watching" }}</p>
       </div>
     </button>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
   props: {
     editableStateString: {
@@ -24,20 +24,20 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getEditableStateByName']),
+    ...mapGetters(["getEditableStateByName"]),
     editableState() {
-      return this.getEditableStateByName(this.editableStateString)
+      return this.getEditableStateByName(this.editableStateString);
     }
   },
   methods: {
     toggleEditability() {
-      this.$store.commit('TOGGLE_EDITABILITY', {
+      this.$store.commit("TOGGLE_EDITABILITY", {
         key: this.editableStateString,
         value: !this.editableState
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="css" scoped>

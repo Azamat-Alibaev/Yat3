@@ -2,12 +2,12 @@
   <div class="bg-transparent  ">
     <div>
       <div class="header p-2 mb-4 w-1/3 bg-gray-800 text-gray-300 rounded-full">
-        {{ $t('tables.all') }}
+        {{ "tables.all" }}
       </div>
     </div>
     <FormNames />
     <router-link class="router-link" :to="{ name: 'forms' }">
-      {{ $t('forms.all') }}
+      {{ "forms.all" }}
     </router-link>
     <Foo> </Foo>
     <div
@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import Foo from '@/components/Foo.vue'
-import FormNames from '@/components/FormNames'
+import Foo from "@/components/Foo.vue";
+import FormNames from "@/components/FormNames";
 
 export default {
   components: {
@@ -38,18 +38,18 @@ export default {
   },
   computed: {
     isFormOpen() {
-      return this.$route.name === 'form'
+      return this.$route.name === "form";
     },
     isFormsOpen() {
-      return this.$route.name === 'forms'
+      return this.$route.name === "forms";
     }
   },
   methods: {
     close() {
-      this.$router.push({ name: 'main' })
+      this.$router.push({ name: "main" });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
