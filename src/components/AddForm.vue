@@ -10,7 +10,6 @@
 </template>
 
 <script lang="js">
-import Vue from 'vue'
 import { mapState } from 'vuex'
 
 export default {
