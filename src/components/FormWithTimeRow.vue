@@ -7,14 +7,13 @@
     >
       <input
         class="m-1 py-1   pr-4 bg-gray-800 text-gray-200 w-9/12 px-2 rounded-full"
-        v-model="form.name"
+        :value="form.name"
         type="text"
         @blur="updateValue"
         @keyup.enter="updateValue"
         :disabled="!isEditable"
         placeholder="Form"
         data-testid="formName"
-        value
       />
       <BaseRemove
         v-if="isEditable"
@@ -27,8 +26,8 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex'
-import BaseRemove from '@/components/BaseRemove.vue'
+import { mapState, mapActions, mapGetters } from "vuex";
+import BaseRemove from "@/components/BaseRemove.vue";
 export default {
   components: {
     BaseRemove
@@ -53,25 +52,25 @@ export default {
   },
   methods: {
     goToForm(form) {
-      this.$router.push({ name: 'form', params: { id: form.id } })
+      this.$router.push({ name: "form", params: { id: form.id } });
     },
     updateValue() {
-      this.$store.dispatch('updateFormName', this.form)
+      this.$store.dispatch("updateFormName", this.form);
     }
   },
   computed: {
     computedStyle() {
-      return `left: ${this.indent}vw`
+      return `left: ${this.indent}vw`;
     },
-    ...mapState(['schoolTimetable']),
-    ...mapActions(['updateFormName']),
-    ...mapGetters(['getFormById']),
+    ...mapState(["schoolTimetable"]),
+    ...mapActions(["updateFormName"]),
+    ...mapGetters(["getFormById"]),
 
     clickedForm() {
-      return this.getFormById(this.form.id)
+      return this.getFormById(this.form.id);
     }
   }
-}
+};
 </script>
 
 <style lang="css">
